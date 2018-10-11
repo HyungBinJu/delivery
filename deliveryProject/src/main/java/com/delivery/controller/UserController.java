@@ -29,7 +29,13 @@ public class UserController {
 		session.setAttribute("member_id", member.getMember_id());
 		session.setAttribute("member_name", member.getMember_name());
 		session.setAttribute("member_nickname", member.getMember_nickname());
-		return "main/index";
+		
+		//일반|관리자 분기
+		if(member.getMember_id().equals("admin")) {
+			return "redirect:/admin/index";
+		} else {
+			return "main/index";
+		}
 	}
 	
 	@RequestMapping(value = "/logout" , method=RequestMethod.GET)
