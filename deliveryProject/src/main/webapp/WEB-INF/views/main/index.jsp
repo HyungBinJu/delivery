@@ -80,8 +80,8 @@
 
 
 		<!-- 메뉴소개 -->
-		<section>
-			<!-- 블랙버젼 -->
+		<!-- <section>
+			블랙버젼
 			<div class="menuWrap bg_bk">
 				<p class="mb50">
 					<img src="images/stit_sign01_0119.gif" alt="나만의 시그니처 버거 만들기" />
@@ -125,7 +125,7 @@
 					</li>
 				
 				</ul>
-			</div>
+			</div> -->
 			<!-- //블랙버젼 -->
 
 			<!-- 화이트 버젼 -->
@@ -233,9 +233,43 @@
 				<span class="title">매장위치</span>
 
 				<div class="map">
-					<img src="images/spot.jpg" alt="" />
-					<img src="images/spot2.jpg" alt="" />
-				</div>
+					<!-- <img src="images/spot.jpg" alt="" />
+					<img src="images/spot2.jpg" alt="" /> -->
+					<div id="map" style="width:690px;height:350px; float:left;margin-left: 366px"></div>
+				<script src="//dapi.kakao.com/v2/maps/sdk.js?appkey=1a743f7f651218d8dff6c973cfbb3816"></script>
+				<script>
+					var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+					    mapOption = {
+					        center: new daum.maps.LatLng(37.499460, 127.028980), // 지도의 중심좌표
+					        
+					       /* 에이콘 강남  
+					        37°29'58.1"N 127°01'44.3"E
+					        37.499460, 127.028980 */
+					        
+					        level: 4, // 지도의 확대 레벨
+					        mapTypeId : daum.maps.MapTypeId.ROADMAP // 지도종류
+					    }; 
+					// 지도를 생성한다 
+					var map = new daum.maps.Map(mapContainer, mapOption); 
+					// 지도에 마커를 생성하고 표시한다
+					var marker = new daum.maps.Marker({
+					    position: new daum.maps.LatLng(37.499460, 127.028980), // 마커의 좌표
+					    map: map // 마커를 표시할 지도 객체
+					});
+					
+				</script>
+			<div class="brd_store_infor">
+					<div class="brd_tit_area03">
+						<h2 class="tit_brd03">강남점</h2>
+					</div>
+					<div id="store_story">서울특별시 강남구 역삼동 강남대로94길<br/>쟈니스버거(에이콘아카데미) 강남점<br>
+							(주중) 10:00~23:00<br>
+							(금요일, 주말) 10:00~23:00<br>
+							월 2회 휴무+설,추석 당일 휴무<br>
+							<a href="http://map.daum.net/?urlX=506416&urlY=1111102&urlLevel=3&itemId=24995999&q=%EC%97%90%EC%9D%B4%EC%BD%98%EC%95%84%EC%B9%B4%EB%8D%B0%EB%AF%B8%20%EA%B0%95%EB%82%A8%EC%BA%A0%ED%8D%BC%EC%8A%A4&srcid=24995999&map_type=TYPE_MAP" target="_blank" title="새 창 열림">
+							<img src="images/btn_store.png" alt="지도상세보기" style="display: block;margin-block-start: 20px;"></a>
+					</div>
+			</div>
 			</div>
 		</section>
 

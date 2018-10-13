@@ -259,3 +259,16 @@ footer .footBG{height:187px;background:url('../images/bk-app-ff-bg.png') repeat-
 .hmc_footer .service_center { margin-bottom:10px; font-size:12px; clear:left;}
 .hmc_footer .cscenter dt, .hmc_footer .cscenter dd {display: inline;}
 .hmc_footer .copyright{font-size:12px;}
+
+/* MAP CSS */
+.brd_store_infor {padding: 0 38px;width: 393px;min-height: 372px;text-align: center;float: left;text-align: left;}
+.brd_store_infor .txt_brd09 { margin-bottom: 6px; }
+#store_story { line-height: 24px; font-size: 14px; }
+.brd_tit_area03 { margin-bottom: 25px; padding-bottom: 14px; border-bottom: 1px solid #ddd; }
+.tit_brd03 { line-height: 26px; font-size: 22px; font-weight: normal; }
+/* //MAP CSS */
+/* 검색 CSS */
+#autocomplete{float:right}
+/* 검색 CSS */
+
+
