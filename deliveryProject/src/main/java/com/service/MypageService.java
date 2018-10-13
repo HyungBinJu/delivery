@@ -1,0 +1,23 @@
+package com.service;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.dao.MypageDAO;
+import com.dto.Member;
+
+@Service
+public class MypageService {
+
+	@Autowired
+	MypageDAO dao;
+	
+
+	public Member getInfoMember(String member_id) {
+		return dao.getInfoMember(member_id);
+	}
+
+}
+
+
+

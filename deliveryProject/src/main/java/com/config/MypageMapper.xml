@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+ "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="MypageMapper">
+	<select id="getInfoMember" parameterType="String" resultType="Member">
+		select    member_id      
+				, member_name 
+				, member_passwd   
+				, member_phone   
+				, member_email   
+				, member_gender   
+				, member_birthday 
+				, member_post  
+				, member_address1 
+				, member_address2
+				, member_nickname 
+				, member_sns     
+				, member_status  
+				, member_joindate 
+				, member_withdrawal
+		from member_list
+		where member_id = #{member_id}
+	</select>
+
+</mapper>
