@@ -141,7 +141,7 @@ form .question input[type="text"]:valid ~ label {
 
 			<div class="brd_tit_area">
 				<h2 class="tit_brd01">
-					 마이페이지
+					 주문조회페이지
 				</h2>
 				
 					<p class="txt_brd07" style="margin-top: 25px;"><a href="mypage">회원 정보 변경</a> | <a href="myorder">주문배송조회</a></p>
@@ -150,7 +150,7 @@ form .question input[type="text"]:valid ~ label {
 			<div class="loginWrap_box">
 				
 				<h2 style="text-align: left; margin-left: 50px; margin-bottom: 30px; font-size: 17px;">*정보를 클릭해서 변경해주세요</h2>
-				<form method="post" action="mypage_update">
+				<form me>
 				  <div class="question">
 				    <input type="text" required readonly="readonly" name="member_id"/>
 				    <label>아이디 : ${member.member_id }</label>

@@ -17,6 +17,11 @@ public class MypageService {
 		return dao.getInfoMember(member_id);
 	}
 
+
+	public int updateMypage(Member member) {
+		return dao.updateMypage(member);
+	}
+
 }
 
 

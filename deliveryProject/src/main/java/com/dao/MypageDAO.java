@@ -15,4 +15,8 @@ public class MypageDAO {
 	public Member getInfoMember(String member_id) {
 		return template.selectOne("MypageMapper.getInfoMember",member_id);
 	}
+
+	public int updateMypage(Member member) {
+		return template.update("MypageMapper.updateMypage",member);
+	}
 }
