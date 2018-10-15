@@ -22,7 +22,7 @@ public class MypageController {
 		Member member = mypageService.getInfoMember(member_id);
 		model.addAttribute("member",member);
 		return "mypage/mypage";
-	}
+	} 
 	
 	@RequestMapping(value="/update_mypage")	
 	public String update_mypage(Member member, HttpSession session) {
