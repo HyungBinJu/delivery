@@ -27,7 +27,7 @@
 	<br>
 
 
-	<input type="checkbox" id="Modify_modal" class="Modify_hidden">
+	<input type="checkbox" id="Modify_modal" class="Modify_hidden ">
 	<div class="Modify_box_modal">
 		<label for="Modify_modal" class="Modify_closer">x</label>
 		<div class="text">
