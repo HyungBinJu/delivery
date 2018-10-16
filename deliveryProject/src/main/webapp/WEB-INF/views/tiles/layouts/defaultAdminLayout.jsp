@@ -7,6 +7,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <title><tiles:getAsString name="title" /></title>
 <link rel="stylesheet"  href="../css/admin.css" type="text/css"  />
+<link rel="stylesheet"  href="../css/admin_stock.css" type="text/css"  />
 </head>
   
 <body>
