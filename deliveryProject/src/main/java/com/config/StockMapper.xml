@@ -16,22 +16,37 @@
 		from STOCK_LIST a, STOCK_ENTER b
 		where a.product_code = b.product_code)
 	</select>
-	
-	<select id="Stock_list2" resultType="Stock" parameterType="Stock">
-		select
-		product_code,product_name,product_amount,product_minimum_amount,product_enter_date,product_enter_date,
-		product_e_amount,product_e_cost from (
-		select a.product_code as product_code,a.product_name as product_name,
-		a.product_amount as product_amount,
-		a.product_minimum_amount as product_minimum_amount, b.product_enter_date as
-		product_enter_date,
-		b.product_e_amount as product_e_amount, b.product_e_cost as product_e_cost
-		from STOCK_LIST a, STOCK_ENTER b
-		where a.product_code = b.product_code)
-	</select>
 
 	<update id="Stock_modify" parameterType="Stock">
 		update stock_list set
 		product_amount=#{product_amount} where product_code = #{product_code}
+	</update>
+	
+	<update id="Stock_Modify_plus" parameterType="Stock">
+		{call declare begin 
+		update stock_list set
+		product_amount = product_amount + #{product_amount} where product_code =  #{product_code};
+		update stock_enter set
+		product_enter_date = sysdate , product_e_amount = #{product_amount} where product_code = #{product_code};
+		end }
+	</update>
+	
+	<delete id="Stock_Delete" parameterType="Stock">
+	{call declare begin
+	delete from stock_enter where product_code in (#{product_code});
+	delete from stock_list where product_code in (#{product_code});
+	end }
+	</delete>
+	
+	<insert id="Stock_Insert" parameterType="Stock">
+	insert all
+	into STOCK_LIST values ('p'||sl_product_code_seq.nextval,#{product_name},#{product_amount},#{product_minimum_amount})
+	into stock_enter values ('p'||se_product_code_seq.nextval,sysdate,#{product_e_amount},#{product_e_cost})
+	select * from dual
+	</insert>
+	
+	<update id="Stock_Minimum_amount_modify" parameterType="Stock">
+		update stock_list set
+		product_minimum_amount=#{product_minimum_amount} where product_code = #{product_code}
 	</update>
 </mapper>

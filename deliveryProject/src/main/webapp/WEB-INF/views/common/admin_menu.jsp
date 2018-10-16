@@ -13,8 +13,8 @@
 			</div>
 			<div class="control_goods">
 				<ul>
-					<li><a href="../admin_stock/stock_management">재고관리</a></li>
-					<li><a href="#">매출현황</a></li>
+					<li><a href="../admin_stock/stockmanagement">재고관리</a></li>
+					<li><a href="../admin_stock/saleschart">매출현황</a></li>
 					<li><a href="#">상품관리</a>
 						<ul>
 							<li><a href="add_goods.jsp">상품등록</a></li>
