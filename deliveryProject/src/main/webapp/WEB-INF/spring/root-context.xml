@@ -39,6 +39,10 @@
 			<list>
 				<value>com.dto.Stock</value>
 				<value>com.dto.Member</value>
+				<value>com.dto.Order</value>
+				<value>com.dto.Sales</value>
+				<value>com.dto.Product</value>
+				<value>com.dto.MyOrder</value>
 			</list>
 		</property>
 	</bean>
