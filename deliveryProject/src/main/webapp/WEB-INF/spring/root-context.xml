@@ -47,6 +47,7 @@
 				<value>com.dto.Sales</value>
 				<value>com.dto.Product</value>
 				<value>com.dto.MyOrder</value>
+				<value>com.dto.Topping</value>
 			</list>
 		</property>
 	</bean>
