@@ -191,13 +191,17 @@
 
 				<span class="title">Best Seller</span>
 				<ul class="bestMenu">
-					<li>
-						<a href="">
-							<img src="images/burger4.png" alt="" />
-							<span>할라피뇨 듬뿍</span>
-						</a>
-					</li>
-					<li>
+					
+					<c:forEach items="${xxx}" var="burger">
+						<li>
+							<a href="">
+								<img src="images/${burger.menu_img}.jpg" alt="" /> 
+								<span>${burger.menu_name}</span>
+							</a>
+						</li>
+					</c:forEach>
+					
+					<!-- <li>
 						<a href="">
 							<img src="images/burger5.jpg" alt="" />
 							<span>할라피뇨 듬뿍</span>
@@ -226,7 +230,7 @@
 							<img src="images/burger9.jpg" alt="" />
 							<span>할라피뇨 듬뿍</span>
 						</a>
-					</li>
+					</li> -->
 				</ul>
 
 

@@ -40,5 +40,10 @@
     <definition name="/*/*" extends="admin-definition">  
        <put-attribute name="body" value="/WEB-INF/views/{1}/{2}.jsp" />  
    </definition>    
- 
+    <definition name="/admin_stock/*" extends="admin-definition">  
+       <put-attribute name="body" value="/WEB-INF/views/admin_stock/{1}.jsp" />  
+   </definition>
+   <definition name="/notice/*" extends="admin-definition">  
+       <put-attribute name="body" value="/WEB-INF/views/notice/{1}.jsp" />  
+   </definition>
 </tiles-definitions>

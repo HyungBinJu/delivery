@@ -12,11 +12,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>재고리스트</h1><br>
+	<%-- <h1>재고리스트</h1><br>
 	<jsp:include page="stockList.jsp" flush="false" /><br><br>
 	<h1>재고 수정</h1> 
 	<jsp:include page="stockModify.jsp" flush="false" /><br>
-	
-<a href="main/index">홈 가기 </a>
+	 --%>
+<!-- <a href="main/index">홈 가기 </a>
+<a href="testlist" style="margin-left: 600px;">테스트</a>
+ -->
+ <jsp:include page="testlist.jsp" flush="false" /><br>
 </body>
 </html>
