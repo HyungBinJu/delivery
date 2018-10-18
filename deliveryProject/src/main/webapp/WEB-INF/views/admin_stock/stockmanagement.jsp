@@ -14,16 +14,20 @@
 <body>
 	<br><br>
 	<!-- 모달 윈도우창 -->
-	<span class="Insert_wrap">
-		<label for="Insert_modal" class="Insert_button">재고 추가</label>
-	</span>
-		<span class="StockTitle">재고리스트</span>
-	<span class="Modify_wrap">
-		<label for="Modify_modal" class="Modify_button">재고 수정</label>
-	</span>
+	<div class="stock_list_wrap">
+		<span>
+			<label for="Insert_modal" class="Insert_button">재고 추가</label>
+		</span>
+			<span class="StockTitle">재고리스트</span>
+		<span>
+			<label for="Modify_modal" class="Modify_button">재고 수정</label>
+		</span>
+	</div>
 	<br>
 	<br>
+	<div class="stock_list_wrap">
 	<jsp:include page="stocklist.jsp" flush="true" /><br>
+	</div>
 	<br>
 
 
@@ -46,6 +50,5 @@
 		</div>
 	</div>
 	
-	<a href="main/index">홈 가기 </a>
 </body>
 </html>
