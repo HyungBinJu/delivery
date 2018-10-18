@@ -12,7 +12,7 @@
 <!-- 검색 -->
 <script>
 
-	
+/* 	
 	$(document).ready(function(){
 		$(function(){
 		    var autocomplete_text = ["할라피뇨 핫 올 버거","클래식 치즈버거","스모크 하우스","그릴드 어니언링 버거","허니갈릭 버거","오리지널 버거"];
@@ -46,7 +46,7 @@
 		});
 		
 		
-	});//end ready
+	});//end ready */
 </script>
 <header>
 	<div class="nav">
@@ -103,7 +103,7 @@
 			</div>
 			<!-- //로그인단 -->
 	
-			<div class="nab_area">
+			<div class="nab_area" style="padding-top: 20px;">
 				<ul>
 					<li>
 						<a href="product">메뉴</a>
@@ -115,17 +115,17 @@
 						<a href="">스토어</a>
 					</li>
 					<li>
-						<a href="">커뮤니티</a>
+						<a href="notice">공지사항</a>
 					</li>
 					<li>
 						<a href="admin/index">이벤트</a>
 					</li>
 				</ul>
 			</div><!-- //nab_area -->
-		<div class="ui-widget">
+	<!-- 	<div class="ui-widget">
 			<input type="text" id="autocomplete">
 			<a href="javascript:void(0)"><span id="search_something"class="btn btn-lg main-offshop-button">검색</span></a>
-		</div>
+		</div> -->
 	</div> <!-- //navinner -->
 </div> <!-- //nav -->
 </header>	<!-- //header -->

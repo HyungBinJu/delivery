@@ -1,10 +1,13 @@
 package com.dao;
 
+import java.util.List;
+
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
 import com.dto.Member;
+import com.dto.MyOrder;
 
 @Repository
 public class MypageDAO {
@@ -18,5 +21,10 @@ public class MypageDAO {
 
 	public int updateMypage(Member member) {
 		return template.update("MypageMapper.updateMypage",member);
+	}
+
+	public List<MyOrder> getMyOrder(String member_id) {
+		System.out.println("DAO 접근  "+member_id);
+		return template.selectList("MypageMapper.getMyOrder",member_id);
 	}
 }

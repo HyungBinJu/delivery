@@ -11,6 +11,7 @@ import com.dto.Stock;
 @Service
 public class StockService {
 
+
 	@Autowired
  	StockDAO dao;
 	

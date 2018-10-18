@@ -1,8 +1,14 @@
 package com.delivery.controller;
 
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
+
+import com.dto.Product;
+import com.service.ProductService;
 
 
 /**
@@ -11,12 +17,19 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class HomeController {
 	
-	
+	@Autowired 
+	ProductService service;
 	@RequestMapping(value = "/index")
-	public String index(Model model) throws Exception {
+	public ModelAndView index() throws Exception {
 		
 		
-		return "main/index";
+		List<Product> list = service.product_list();
+			System.out.println(list);
+		ModelAndView mav = new ModelAndView();
+		mav.addObject("xxx",list);
+		mav.setViewName("main/index");
+		return mav;
 	}
+
 	
 }

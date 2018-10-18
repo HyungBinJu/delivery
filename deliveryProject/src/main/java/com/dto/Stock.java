@@ -5,6 +5,7 @@ import org.apache.ibatis.type.Alias;
 @Alias("Stock")
 public class Stock {
 
+
 	private String product_code;
 	private String product_name;
 	private String product_amount;
@@ -95,3 +96,4 @@ public class Stock {
 	}
 
 }
+

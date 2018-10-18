@@ -11,6 +11,7 @@ import com.dto.Stock;
 @Repository
 public class StockDAO {
 
+
 	@Autowired
 	SqlSessionTemplate template;
 	
@@ -45,3 +46,4 @@ public class StockDAO {
 	}
 	
 }
+

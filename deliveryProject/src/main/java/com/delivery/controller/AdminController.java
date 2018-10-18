@@ -18,6 +18,6 @@ public class AdminController {
 	public String adminOrder(  Model model) throws Exception {
 		
 		
-		return "/admin_stock/stock_management"; 
+		return "/admin_stock/testlist"; 
 	} 
 }
