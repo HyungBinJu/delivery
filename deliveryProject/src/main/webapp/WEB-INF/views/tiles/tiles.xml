@@ -46,4 +46,5 @@
    <definition name="/notice/*" extends="admin-definition">  
        <put-attribute name="body" value="/WEB-INF/views/notice/{1}.jsp" />  
    </definition>
+ 
 </tiles-definitions>
