@@ -1,10 +1,13 @@
 package com.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dao.MypageDAO;
 import com.dto.Member;
+import com.dto.MyOrder;
 
 @Service
 public class MypageService {
@@ -20,6 +23,11 @@ public class MypageService {
 
 	public int updateMypage(Member member) {
 		return dao.updateMypage(member);
+	}
+
+
+	public List<MyOrder> getMyOrder(String member_id) {
+		return dao.getMyOrder(member_id);
 	}
 
 }

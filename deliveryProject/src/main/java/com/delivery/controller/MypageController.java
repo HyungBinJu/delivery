@@ -1,5 +1,8 @@
 package com.delivery.controller;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.dto.Member;
+import com.dto.MyOrder;
 import com.service.MypageService;
 
 @Controller
@@ -33,7 +37,13 @@ public class MypageController {
 	}
 	
 	@RequestMapping(value="/myorder")
-	public String myorder(HttpSession session) {
-		return "mypage/myorder";
+	public String myorder(HttpSession session, Model model) {
+		List<MyOrder> list = new ArrayList<>();
+		String member_id = (String)session.getAttribute("member_id");
+		System.out.println("컨트롤러 접근");
+		list = mypageService.getMyOrder(member_id);
+		model.addAttribute("list",list);
+		
+		return "mypage/myorder"; 
 	}
 }
