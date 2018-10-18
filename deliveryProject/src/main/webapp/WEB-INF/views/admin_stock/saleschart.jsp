@@ -17,7 +17,7 @@
 
 <script type="text/javascript">
 $(document).ready(function() {
-	$(".chart").on("click", function() {
+	$(".chart_button").on("click", function() {
 		var year = $("#year option:selected").val().slice(0,4);
 		
 		if($("#month option:selected").val().length==2){
@@ -75,7 +75,8 @@ $(document).ready(function() {
 </head>
 <body>
 <br><br>
-<input type="button" value="차트" class="chart"/>
+<div style="float: left;   margin: auto 0;   margin-left: 20%;">
+<input type="button" value="차트" class="chart_button"/>
 	<select id="year">
 		<option>2017년</option>
 		<option>2018년</option>
@@ -94,8 +95,9 @@ $(document).ready(function() {
 		<option>11월</option>
 		<option>12월</option>
 	</select>
+</div>
 
 	<div id="curve_chart"
-		style="width: 900px; height: 500px; margin-inline-start: 280px;"></div>
+		style="width: 900px; height: 500px; float: left;   margin: auto 0;   margin-left: 20%;"></div>
 </body>
 </html>

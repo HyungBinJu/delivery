@@ -7,13 +7,17 @@
 	font-family: Jeju Gothic;
 }
 
+.stock_list_wrap {
+    float: left;
+    margin: auto 0;
+    margin-left: 20%;
+}
+
 table.StockListTB {
-	margin-inline-start: 280px;
 	border-collapse: collapse;
 	text-align: left;
 	line-height: 1.5;
 	border-left: 1px solid #ccc;
-	/*     margin: 20px 10px; */
 }
 
 table.StockListTB thead th {
@@ -26,7 +30,6 @@ table.StockListTB thead th {
 }
 
 table.StockListTB tbody th {
-	/*     width: 150px; */
 	width: 100px;
 	padding: 10px;
 	font-weight: bold;
@@ -39,7 +42,6 @@ table.StockListTB tbody th {
 }
 
 table.StockListTB td {
-	/*     width: 350px; */
 	width: 160px;
 	padding: 5px;
 	border-right: 1px solid #ccc;
@@ -53,7 +55,6 @@ table.StockModify {
 	text-align: left;
 	line-height: 1.5;
 	border-left: 1px solid #ccc;
-	/*     margin: 20px 10px; */
 }
 
 table.StockModify thead th {
@@ -78,7 +79,6 @@ table.StockModify tbody th {
 }
 
 table.StockModify td {
-	/* 	width: 350px; */
 	width: 290px;
 	padding: 5px;
 	border-right: 1px solid #ccc;
@@ -93,7 +93,6 @@ table.StockInsert {
 	text-align: left;
 	line-height: 1.5;
 	border-left: 1px solid #ccc;
-	/*     margin: 20px 10px; */
 }
 
 table.StockInsert thead th {
@@ -118,7 +117,6 @@ table.StockInsert tbody th {
 }
 
 table.StockInsert td {
-	/* 	width: 350px; */
 	width: 290px;
 	padding: 5px;
 	border-right: 1px solid #ccc;
@@ -184,8 +182,7 @@ table.StockInsert td {
 	text-shadow: 0px -1px 0px #2b665e;
 }
 
-.product_delete {
-	margin-inline-start: 280px;
+.product_delete , .management_home_button {
 	-moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
 	-webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
 	box-shadow: inset 0px 1px 3px 0px #91b8b3;
@@ -280,17 +277,10 @@ table.StockInsert td {
 }
 
 /* 본문 디자인 */
-.Modify_wrap{
-/* 	margin-inline-start: 300px; */
-}
 
-.Insert_wrap{
-/* 	margin-inline-start: 200px; */
-}
 /* 버튼으로 사용할 라벨 디자인 */
 .Modify_button{
 	font-weight: 600;
-/* 	vertical-align: middle; */
 	cursor: pointer;
 	font-size: 50px;
 	font-family: Jeju Gothic;
@@ -298,11 +288,9 @@ table.StockInsert td {
 }
 .Insert_button{
 	font-weight: 600;
-/* 	vertical-align: middle; */
 	cursor: pointer;
 	font-size: 50px;
 	font-family: Jeju Gothic;
-	margin-inline-start: 280px;
 }
 /* 모달 윈도우 디자인 */
 .Modify_box_modal {
@@ -477,7 +465,7 @@ input#product_ma_modal[type=checkbox]:checked ~ .product_ma_box_modal {
 	font-weight: bold;
 }
 
-.chart {
+.chart_button {
 	-moz-box-shadow: inset 0px 1px 3px 0px #91b8b3;
 	-webkit-box-shadow: inset 0px 1px 3px 0px #91b8b3;
 	box-shadow: inset 0px 1px 3px 0px #91b8b3;
@@ -504,5 +492,4 @@ input#product_ma_modal[type=checkbox]:checked ~ .product_ma_box_modal {
 	padding: 5px 10px;
 	text-decoration: none;
 	text-shadow: 0px -1px 0px #2b665e;
-	margin-inline-start: 280px;
 }

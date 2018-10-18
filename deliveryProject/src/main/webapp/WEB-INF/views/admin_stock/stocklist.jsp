@@ -122,7 +122,10 @@ $(document).ready(function(){
 			</c:forEach>
 		</table>
 		<br>
+		<div style="float: left;   margin: auto 0;">
 		<input type="button" value="삭제" class="product_delete">
+		<a href="../index" class="management_home_button">홈 가기 </a>
+		</div>
 	</form>
 
 	<!-- 모달 윈도우창 -->
