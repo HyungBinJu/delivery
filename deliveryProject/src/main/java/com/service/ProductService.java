@@ -21,5 +21,19 @@ public class ProductService {
    public List<Product> product_list(){
       return dao.product_list();
    }
+   
+   public List<Product> getProduct(String tabName) {
+		// TODO Auto-generated method stub
+		 return dao.getProduct(tabName);
+	}
+	public List<Product> getProductRecommend() {
+		return dao.getProductRecommend();
+	}
+
+
+	public List<Product> getProductCode(String menu_code) {
+		return dao.getProductCode(menu_code);
+	}
+
 
 }
