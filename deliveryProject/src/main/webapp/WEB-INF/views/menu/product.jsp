@@ -1,13 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-
-
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+    
 			<script type="text/javascript">
 				$(document).ready(function(){
 					
-
 					$(".navMenubar li").click(function(){
 						var idx= $(this).index();
+						var tabName =$.trim($(this).find(".mn-text").text());
+						console.log(tabName);
 						console.log(idx);
 					
 						$(this).siblings().removeClass("on");
@@ -16,23 +19,31 @@
 
 						$(".mn_delivery_list").removeClass("on");
 						$(".mn_delivery_list").eq(idx).addClass("on");
+						
+						
+						 $.ajax({
+							url : 'listProduct', //text.jsp로 연결하겠다.
+							type : "get", //방식 get post
+							data : {
+								"tabName" :tabName
+								
+							}, //comBox 가 servlet string과 같게 받아야 함.
+							dataType : 'text', //요청했을 때 내가 받고싶은 형 종류
+							success : function(data, status, xhr) { //지가 알아서 성공하면 이 함수 실행
+								$(".mn_delivery_list").eq(idx).find(".deliveryMenu li").remove();
+								$(".mn_delivery_list").eq(idx).find(".deliveryMenu").prepend(data); 
+								//console.log(data);
+							},
+							error : function(xhr, status, error) { //실패하면 지가 알아서 이 함수 실행
+								console.log(error);
+							}
 
-					});
+						});  //ajax 
+						
+					}); //
 
 				});
 			</script>
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
 			
 			
 			
@@ -53,8 +64,7 @@
 				<h2 class="tit_brd01">
 					 DELIVERY MENU
 				</h2>
-				
-					<p class="txt_brd07" style="margin-top: 25px;">정직한 음식이 만드는 행복한 세상!  다양한 메뉴를 배달로 만나세요! </p>
+				<p class="txt_brd07" style="margin-top: 25px;">정직한 음식이 만드는 행복한 세상!  다양한 메뉴를 배달로 만나세요! </p>
 			</div>
 			
 			<div class="sectionBox">
@@ -94,16 +104,20 @@
 					</li>
 				</ul>
 				<!-- 추천메뉴 -->
+				
 				<div class="mn_delivery_list on">
 					<ul class="bestMenu deliveryMenu">
+						
+						
+						 <c:forEach var="goods" items="${list}">
 						<li>
-							<a href="">
-								<img src="images/burger4.jpg" alt="" />
-								<span>할라피뇨 듬뿍</span>
+							<a href="productInfo?menu_code=${goods.menu_code}">
+								<img src="images/product/${goods.menu_img}.jpg" alt="" />
+								<span>${goods.menu_name}</span>
 							</a>
 							
-							<p class="delivery-list-phrase">매콤한 고추와 달콤한 빨간소스의 절묘한 그 맛을 버거로도 즐기자!</p>
-							<p class="delivery-list-price">5,000</p>
+							<p class="delivery-list-phrase">${goods.menu_content_1}</p>
+							<p class="delivery-list-price">${goods.menu_price}</p>
 							
 							<span class="mn-cart">
 								<a href="">카트담기</a>
@@ -113,7 +127,9 @@
 							</span>
 
 						</li>
-						<li>
+						</c:forEach>
+						 
+						<!-- <li>
 							<a href="">
 								<img src="images/burger5.jpg" alt="" />
 								<span>할라피뇨 듬뿍</span>
@@ -193,7 +209,7 @@
 							<span class="mn-cart bdnone">
 								<a href="">바로주문</a>
 							</span>
-						</li>
+						</li> -->
 					</ul>
 				</div>
 				<!-- // 추천메뉴 -->
@@ -201,23 +217,7 @@
 				<!-- 버거 -->
 				<div class="mn_delivery_list">
 					<ul class="bestMenu deliveryMenu">
-						<li>
-							<a href=""> 
-								<img src="images/burger4.png" alt="" />
-								<span>할라피뇨 듬뿍</span>
-							</a>
-							
-							<p class="delivery-list-phrase">매콤한 고추와 달콤한 빨간소스의 절묘한 그 맛을 버거로도 즐기자!</p>
-							<p class="delivery-list-price">5,000</p>
-
-							<span class="mn-cart">
-								<a href="">카트담기</a>
-							</span>
-							<span class="mn-cart bdnone">
-								<a href="">바로주문</a>
-							</span>
-							
-						</li>
+						
 					</ul>
 				</div>
 				<!-- // 버거 -->
@@ -225,23 +225,7 @@
 				<!-- 사이드메뉴 -->
 				<div class="mn_delivery_list">
 					<ul class="bestMenu deliveryMenu">
-						<li>
-							<a href="">
-								<img src="images/product/coleslaw.png" alt="" />
-								<span>코울슬로</span>
-							</a>
-							
-							<p class="delivery-list-phrase">매콤한 고추와 달콤한 빨간소스의 절묘한 그 맛을 버거로도 즐기자!</p>
-							<p class="delivery-list-price">5,000</p>
-							<span class="mn-cart">
-								<a href="">카트담기</a>
-							</span>
-							<span class="mn-cart bdnone">
-								<a href="">바로주문</a>
-							</span>
-
-						</li>
-						<li>옥수수콘, 감튀</li>
+						
 					</ul>
 				</div>
 				<!-- // 사이드메뉴 -->
@@ -249,23 +233,7 @@
 				<!-- 음료 -->
 				<div class="mn_delivery_list">
 					<ul class="bestMenu deliveryMenu">
-						<li>
-							<a href="">
-								<img src="images/product/coke.png" alt="" style="width:56%" />
-								<span>콜라</span>
-							</a>
-							
-							<p class="delivery-list-phrase">탄산음료 & 음료수</p>
-							<p class="delivery-list-price">5,000</p>
-							<span class="mn-cart">
-								<a href="">카트담기</a>
-							</span>
-							<span class="mn-cart bdnone">
-								<a href="">바로주문</a>
-							</span>
-
-						</li>
-						<li>오렌지쥬스, 사이다</li>
+						
 					</ul>
 				</div>
 				<!-- // 음료 -->
@@ -275,18 +243,6 @@
 		</div>
 	</section>
 	<!-- //body -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

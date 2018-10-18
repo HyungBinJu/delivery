@@ -20,6 +20,19 @@ public class ProductDAO {
       List<Product> list = template.selectList("ProductMapper.productlist");
       return list;
    }
+   
+   public List<Product> getProduct(String tabName) {
+		// TODO Auto-generated method stub
+		return template.selectList("ProductMapper.getProduct",tabName);
+	}
+	
+	public List<Product> getProductRecommend() {
+		return template.selectList("ProductMapper.getProductRecommend");
+	}
+
+	public List<Product> getProductCode(String menu_code) {
+		return template.selectList("ProductMapper.getProductCode",menu_code);
+	}
   
 
 }

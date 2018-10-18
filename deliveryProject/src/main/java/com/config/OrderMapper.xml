@@ -13,5 +13,42 @@
 		like #{year} || '-' ||#{month})
 		order by 1
 	</select>
+	
+	<insert id="addOrder" parameterType="Order">
+		insert into order_information_list (order_code,order_id,order_tel,order_request,order_people,order_address,order_all_price,order_status)
+		values('o'||OL_order_code_seq.nextval,#{order_id} ,#{order_tel} ,#{order_request} ,#{order_people} ,#{order_address}
+		 ,#{order_all_price} ,#{order_status} )
+	</insert>
+	
+
+	
+	<insert id="addSalesList" parameterType="arraylist">
+		insert all
+		<foreach item="item" index="index" collection="list">
+			into sales_list (order_code,product_code,menu_code,sales_amount,sales_payment_date,sales_price)
+			values( #{item.order_code},#{item.product_code},#{item.menu_code},#{item.sales_amount},TO_DATE(SYSDATE,'yyyy/MM/dd hh:mi:ss'),#{item.sales_price})
+		</foreach>
+		select *
+		from dual
+	</insert>
+	
+	 <update id="updateStock" parameterType="string">
+		begin
+		for x in 1 .. 10 loop
+		update stock_list set product_amount=product_amount - 1 
+		where product_name in (
+		select 
+		trim(regexp_substr(replace(menu_recipe,'/','/ '),'[^/]+',1,x))
+		from MENU_LIST
+		where MENU_CODE in (select menu_code from sales_list where menu_code = #{menu_code})
+		);
+		end loop;
+		end;
+	</update> 
+	
+	
+	<select id="getOrder" parameterType="string" resultType="Order" >
+		select * from order_information_list where order_id = #{order_id} and ROWNUM = 1 order by order_code desc 
+	</select>
 
 </mapper>

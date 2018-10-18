@@ -33,6 +33,19 @@ public class Order {
 		this.order_status = order_status;
 		this.sales_payment_date = sales_payment_date;
 	}
+	
+	public Order(String order_code, String order_id, String order_tel, String order_request, String order_people,
+			String order_address, int order_all_price, String order_status) {
+		super();
+		this.order_code = order_code;
+		this.order_id = order_id;
+		this.order_tel = order_tel;
+		this.order_request = order_request;
+		this.order_people = order_people;
+		this.order_address = order_address;
+		this.order_all_price = order_all_price;
+		this.order_status = order_status;
+	}
 
 	public String getOrder_code() {
 		return order_code;
