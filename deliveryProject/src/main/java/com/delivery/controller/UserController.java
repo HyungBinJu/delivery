@@ -32,7 +32,7 @@ public class UserController {
 		
 		//일반|관리자 분기
 		if(member.getMember_id().equals("admin")) {
-			return "redirect:/admin/index";
+			return "redirect:/admin/menuList";
 		} else {
 			return "main/index";
 		}

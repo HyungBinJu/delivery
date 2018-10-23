@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import com.dto.KakaoPay;
 import com.dto.Order;
 import com.dto.Product;
 import com.dto.Topping;
@@ -67,9 +68,10 @@ public class OrderController {
 			@RequestParam("toping") String toping,
 			@RequestParam("toping_price") String toping_price) throws Exception {
 		
-		order.setOrder_id("session");  //session 값 받아서 값 넣기.
+		String member_id = (String)session.getAttribute("member_id");
+		order.setOrder_id(member_id);  //session 값 받아서 값 넣기.
 		order.setOrder_status("1"); //session 값 받아서 값 넣기.
-		//m.addAttribute("order",order);
+		m.addAttribute("order",order);
 		
         String[] topingArr = toping.split("/");
         String[] topingPriceArr = toping_price.split("/");
@@ -77,13 +79,35 @@ public class OrderController {
         Topping tdto = new Topping(menu_code,count,price,topingArr,topingPriceArr); 
         oservice.addOrder(order,tdto);
 
-		
-		
-		
-		return "order/orderConfirm";
+        return "order/orderConfirm";
 		
 	}
+	
+	@RequestMapping(value = "/addOrderConfirm2" )
+	public String addOrder(HttpSession session,Model m) throws Exception {
+		KakaoPay pay = (KakaoPay)session.getAttribute("pay");
+		Order order = pay.getOrder();
+		System.out.println("order>>>>"+order);
+		order.setOrder_id((String)session.getAttribute("member_id"));  //session 값 받아서 값 넣기.
+		order.setOrder_status("1"); //session 값 받아서 값 넣기.
+		String menu_code = pay.getMenu_code();
+		String count = pay.getCount();
+		String price = pay.getPrice();
+		String toping = pay.getToping();
+		String toping_price = pay.getToping_price();
+		
+		
+		m.addAttribute("order",order);
+		
+        String[] topingArr = toping.split("/");
+        String[] topingPriceArr = toping_price.split("/");
+        
+        Topping tdto = new Topping(menu_code,count,price,topingArr,topingPriceArr); 
+        oservice.addOrder(order,tdto);
 
+        return "order/orderConfirm";
+		
+	}
 
 
 }

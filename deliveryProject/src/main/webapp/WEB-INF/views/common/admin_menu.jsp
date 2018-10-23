@@ -17,8 +17,8 @@
 					<li><a href="../admin_stock/saleschart">매출현황</a></li>
 					<li><a href="#">상품관리</a>
 						<ul>
-							<li><a href="add_goods.jsp">상품등록</a></li>
-							<li><a href="list_goods.jsp">리스트(수정/삭제)</a></li>
+							<li><a href="../admin/addMenuForm">상품등록</a></li>
+							<li><a href="../admin/menuList">리스트(삭제)</a></li>
 						</ul>
 					</li>
 				</ul>

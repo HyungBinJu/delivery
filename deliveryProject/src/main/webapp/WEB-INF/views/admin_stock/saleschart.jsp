@@ -98,6 +98,6 @@ $(document).ready(function() {
 </div>
 
 	<div id="curve_chart"
-		style="width: 900px; height: 500px; float: left;   margin: auto 0;   margin-left: 20%;"></div>
+		style="width: 900px; height: 500px; float: left;   margin: auto 0;"></div>
 </body>
 </html>

@@ -87,8 +87,8 @@
 	               </table>
                </div>
                <br />
-               <a href="#" class="btn btn-reverse btn-lg login-button login_submit2">주문내역 확인</a>
-               <a href="/controller/index" class="btn  btn-lg login-button login_submit">홈으로</a>
+               <a href="myorder" class="btn btn-reverse btn-lg login-button login_submit2">주문내역 확인</a>
+               <a href="index" class="btn  btn-lg login-button login_submit">홈으로</a>
       		</div> <!-- //productInfoBox -->
       	</div> <!-- //sectionBox -->
       </div><!-- //subWrap  -->

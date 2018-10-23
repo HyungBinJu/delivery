@@ -23,13 +23,13 @@
 
 	
 	<insert id="addSalesList" parameterType="arraylist">
-		insert all
-		<foreach item="item" index="index" collection="list">
+		
+		<foreach item="item" index="index" collection="list" open="insert all" close="select *
+		from dual" >
 			into sales_list (order_code,product_code,menu_code,sales_amount,sales_payment_date,sales_price)
 			values( #{item.order_code},#{item.product_code},#{item.menu_code},#{item.sales_amount},TO_DATE(SYSDATE,'yyyy/MM/dd hh:mi:ss'),#{item.sales_price})
 		</foreach>
-		select *
-		from dual
+		
 	</insert>
 	
 	 <update id="updateStock" parameterType="string">
@@ -48,7 +48,7 @@
 	
 	
 	<select id="getOrder" parameterType="string" resultType="Order" >
-		select * from order_information_list where order_id = #{order_id} and ROWNUM = 1 order by order_code desc 
+		select order_code,order_id,order_tel,order_request,order_people,order_address,order_all_price,order_status from order_information_list where order_id = #{order_id} and ROWNUM = 1 order by order_code desc 
 	</select>
 
 </mapper>

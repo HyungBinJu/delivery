@@ -49,4 +49,52 @@
 		update stock_list set
 		product_minimum_amount=#{product_minimum_amount} where product_code = #{product_code}
 	</update>
+	
+	
+		<select id="addMenuForm" resultType="StockList">
+		SELECT product_code pCode,
+			   product_name pName
+		  FROM stock_list
+	</select>
+
+	<insert id="addMenu" parameterType="Menu">
+		INSERT INTO menu_list (
+					menu_code,
+					menu_img,
+					menu_category,
+					menu_name,
+					menu_price,
+					menu_content_1,
+					menu_content_2,
+					menu_recipe)
+			 VALUES ('m'||ml_menu_code_seq.nextval,
+					#{mImg},
+					#{mCategory},
+					#{mName},
+					#{mPrice},
+					#{mContent1},
+					#{mContent2},
+					#{mRecipe})
+	</insert>
+	
+	<select id="menuList" parameterType="string" resultType="Menu">
+		SELECT menu_code mCode,
+			   menu_img mImg,
+			   menu_category mCategory,
+			   menu_name mName,
+			   menu_price mPrice,
+			   menu_content_1 mContent1,
+			   menu_content_2 mContent2,
+			   menu_recipe mRecipe,
+			   menu_total_sales_amount mTotalSalesAmount
+		  FROM menu_list
+	     <if test='category != null and category !="null"'>
+		 WHERE menu_category = #{category}
+	     </if>		
+	</select>
+	
+	<delete id="delMenu" parameterType="string">
+		DELETE FROM menu_list
+		 WHERE menu_code = #{mCode}
+	</delete>
 </mapper>

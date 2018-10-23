@@ -27,6 +27,8 @@ public class OrderDAO {
 	}
 	
 	public void addOrder(Order odto,Topping tdto) {
+		System.out.println("order>>?? "+odto);
+		System.out.println("Topping>>?? "+tdto);
 		
 		//Order주문상세 등록	
 		 template.insert("OrderMapper.addOrder",odto);
@@ -35,6 +37,7 @@ public class OrderDAO {
 		
 		//해당 아이디에 맞는 주문 오더리스트 출력
 		String userid= odto.getOrder_id();
+		System.out.println("userid  "+userid);
 		 Order order = template.selectOne("OrderMapper.getOrder",userid);
 		 
 		 //이 오더 코드로 sales_list 테이블에 데이터 입력해야함.
@@ -44,7 +47,7 @@ public class OrderDAO {
 		 String sales_price =tdto.getPrice();
 		 //tdto.setOrder_code(order_code);
 		 
-		 System.out.println(order_code);
+		 System.out.println("order_code>>> "+order_code);
 		 System.out.println(menu_code);
 		 System.out.println(sales_amount);
 		 System.out.println(sales_price);

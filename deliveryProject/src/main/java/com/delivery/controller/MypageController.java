@@ -28,7 +28,7 @@ public class MypageController {
 		return "mypage/mypage";
 	} 
 	
-	@RequestMapping(value="/update_mypage")	
+	@RequestMapping(value="/mypage_update")	
 	public String update_mypage(Member member, HttpSession session) {
 		member.setMember_id((String)session.getAttribute("member_id"));
 		member.setMember_name((String)session.getAttribute("member_name"));
