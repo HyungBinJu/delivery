@@ -36,6 +36,7 @@
 				<value>classpath:com/config/NoticeMapper.xml</value>
 				<value>classpath:com/config/ProductMapper.xml</value>
 				<value>classpath:com/config/MypageMapper.xml</value>
+				<value>classpath:com/config/UserMapper.xml</value>
 			</list>
 		</property>
 		<property name="typeAliases">
@@ -48,6 +49,15 @@
 				<value>com.dto.Product</value>
 				<value>com.dto.MyOrder</value>
 				<value>com.dto.Topping</value>
+				<value>com.dto.SalesList</value>
+				<value>com.dto.OrderInformationList</value>
+				<value>com.dto.OrderNotice</value>
+				<value>com.dto.Menu</value>
+				<value>com.dto.StockList</value>
+				<value>com.dto.Guest</value>
+				<value>com.dto.OrderMember</value>
+				<value>com.dto.AddMenu</value>
+				<value>com.dto.KakaoPay</value>
 			</list>
 		</property>
 	</bean>
@@ -66,4 +76,19 @@
 		<property name="dataSource" ref="dataSource" />
 	</bean>
 	<tx:annotation-driven />
+	
+		<bean id="mailSender" class = "org.springframework.mail.javamail.JavaMailSenderImpl">
+      <property name="host" value="smtp.gmail.com" />
+      <property name="port" value="587" />
+      <property name="username" value="hi244244@gmail.com" />
+      <property name="password" value="jkakao56" />
+      <property name="javaMailProperties">
+         <props>
+               <prop key="mail.transport.protocol">smtp</prop>
+               <prop key="mail.smtp.auth">true</prop>
+               <prop key="mail.smtp.starttls.enable">true</prop>
+               <prop key="mail.debug">true</prop>
+         </props>
+      </property>
+   </bean>
 </beans>

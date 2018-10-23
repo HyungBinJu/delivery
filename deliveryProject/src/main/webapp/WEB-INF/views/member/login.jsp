@@ -57,7 +57,7 @@ $(document).ready(function(){
 
 						<button id="login_submit" class="btn btn-reverse btn-lg login-button login_submit">로그인 </button>
 						<!-- <a href="javascript:void(0)" id="login_submit" class="btn  btn-reverse btn-lg login-button login_submit">로그인</a> -->
-						<a href="javascript:void(0)" class="btn  btn-lg login-button login_submit">회원가입</a>
+						<a href="join" class="btn  btn-lg login-button login_submit">회원가입</a>
 
 						<div class="login-util">
 							<ul>

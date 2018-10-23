@@ -1,3 +1,5 @@
+
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 
@@ -290,9 +292,46 @@ function sample4_execDaumPostcode() {
     
     
 }
-$(document).ready(function(){
+/*	테스트 원본
+ 	
+ $(document).ready(function(){
 	$(".btnPaymentCall").click(function(){
 		$("#confirmform").submit();
+	});
+}); */
+
+
+//serialize to json
+$.fn.serializeObject = function()
+{
+   var o = {};
+   var a = this.serializeArray();
+   $.each(a, function() {
+       if (o[this.name]) {
+           if (!o[this.name].push) {
+               o[this.name] = [o[this.name]];
+           }
+           o[this.name].push(this.value || '');
+       } else {
+           o[this.name] = this.value || '';
+       }
+   });
+   return o;
+};
+
+
+$(document).ready(function(){
+	$(".btnPaymentCall").click(function(){
+		if($("#ipt_item23").is(":checked") == true){
+			var forms = $("#confirmform").serializeObject();
+			console.log(forms); 
+			payment();
+		}
+		else{
+			$("#confirmform").submit();			
+		}
+		
+		
 	});
 });
 
@@ -358,6 +397,43 @@ function initTmap(x,y){
    }
    // 맵 생성 실행
 } //init tmap   
+
+function payment(){
+	var forms = $("#confirmform").serializeObject();
+	var item_name = $(".payment-mn__tit").text();
+	var quantity = '${count}';
+	var total_amount = '${price}';
+	
+	var forms = $("#confirmform").serializeObject();
+	var request = $.ajax({
+		url : 'restTest',
+		method : 'POST',
+		data: JSON.stringify({itemName: item_name, quantity: quantity, totalAmount: total_amount
+			, 'count':forms.count
+			, 'menu_code':forms.menu_code
+			, 'order':{'order_address':forms.order_address
+						,'order_all_price':forms.order_all_price
+						,'order_people':forms.order_people
+						,'order_request':forms.order_request
+						,'order_tel':forms.order_tel}
+			, 'price':forms.price
+			, 'toping':forms.toping
+			, 'toping_price':forms.toping_price
+			}), 
+		contentType: "application/json"
+		
+	});
+
+	request.done(function(data) {
+		kakaopayUrl = data[0].next_redirect_pc_url;
+		window.open(kakaopayUrl,"","width=550,height=500")
+		
+	});
+
+	request.fail(function(jqXHR, textStatus) {
+		console.log("Request failed: " + textStatus);
+	});
+}
 </script>
 
 			
@@ -387,7 +463,7 @@ function initTmap(x,y){
 				<input type="hidden" value="${price }" name="price" />
 				<input type="hidden" value="${toping_price }" name="toping_price" />
 				
-				<input type="hidden" value="유저이름" name="order_people" /> <!--  유저이름 세션에서 받아와서 넘기기!!!!!!!!!  -->
+				<input type="hidden" value="${member_name}" name="order_people" /> <!--  유저이름 세션에서 받아와서 넘기기!!!!!!!!!  -->
 				<div class="productInfoBox">
 
 					<div class="payment-hd">
@@ -540,7 +616,7 @@ function initTmap(x,y){
 																	<span class="ui-checkbox-label ui-checkbox-label__ty2"><span class="v-hidden">선택</span></span>
 																</div>
 															</div>
-															<p class="payment-info__item2"><label for="ipt_item23">휴대폰 결제</label></p>
+															<p class="payment-info__item2"><label for="ipt_item23" >카카오페이결제</label><img src="resources/images/ico_kakaopay.gif"/></p>
 														</li>
 													</ul>
 												</li>
@@ -579,6 +655,7 @@ function initTmap(x,y){
 					<div class="sign-button">
 						<a href="javascript:void(0)" class="btn btn-lg btn-second ">취소</a>
 						<a href="javascript:void(0)" class="btn btn-lg btn-third btnPaymentCall">결제하기</a>
+						
 					</div>
 					
 				</form>
