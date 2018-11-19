@@ -54,7 +54,7 @@ $(document).ready(function(){
 	})
 	
 	
-	//수정버튼 클릭시 class="find_check"(label 자식 클래스)에 id 속성 추가
+	//수정버튼 클릭시 class="find_check"(label 자식 클래스)에 id 속성 추가.
 	$(".product_ma_button").on("click",function(){
 		var id = $(this).attr('id');
 		$(".list_product_minimum_amount").attr('id',id);
